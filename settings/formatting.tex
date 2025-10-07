@@ -1,0 +1,70 @@
+%-------------------------------------------
+%---------------GENERAL---------------------
+%-------------------------------------------
+
+% URLs
+\urlstyle{same}
+
+% Text Alignment
+\raggedbottom
+% \raggedright
+\setlength{\tabcolsep}{0in}
+
+% No paragraph indentation
+\setlength{\parindent}{0pt}
+
+%-------------------------------------------
+%---------------FONTS-----------------------
+%-------------------------------------------
+
+%\usepackage[default]{fontsetup}
+\usepackage[olddefault]{fontsetup}
+
+%-------------------------------------------
+%---------------HEADERS AND FOOTERS---------
+%-------------------------------------------
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+%\fancyfoot{}
+%
+\rhead{\textit{p.~\thepage}\hspace*{1em}}
+% or
+%\rfoot{p.~\thepage\hspace*{1em}}
+%
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\newcommand{\tmpx}{\textit{\color{blue} versión en español en p.~3\hspace*{1em}}}
+\newcommand{\tmp}[1]{\renewcommand{\tmpx}{#1}}
+\fancypagestyle{note}{\rhead{\tmpx}}
+
+%-------------------------------------------
+%---------------SECTIONS--------------------
+%-------------------------------------------
+
+\titleformat{\section}%
+[block]% Options: hang, block, runin
+{\normalfont\large\bfseries\scshape}% Section font
+{}% Label
+{0em}% Horizontal sep between label and title
+{}% Before-code
+[\color{black}\titlerule\vspace{1.5ex}]% After-code
+
+% Section spacing
+\titlespacing{\section}%
+{0em}% Add to left margin
+{1ex}% vspace before
+{0ex}% vspace after
+
+%-------------------------------------------
+%---------------ATS PARSABLE----------------
+%-------------------------------------------
+
+% This document should be ATS parseable by default
+% if it is compiled with LuaLaTeX or XeLaTex
+
+% Although unadvised, if this document is being 
+% compiled with regular LaTex of pdfLatex use:
+
+%\pdfgentounicode=1

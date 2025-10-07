@@ -1,0 +1,107 @@
+%----------Guidelines----------
+% Use a sincere tone  
+% Clearly highlight your contributions  
+% Present a clear picture of your expertise  
+% Keep the document easy to read  
+%----------Other----------
+% Use a hard space '~' after abbreviation dots ('M.Sc.~in')
+% Complile using Lua(La)Tex preferably, or XeLaTeX
+
+\documentclass[letterpaper,10pt]{article}
+
+%-------------------------------------------
+%---------------PACKAGES--------------------
+%-------------------------------------------
+
+\usepackage{latexsym}
+%\usepackage[cm]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+%\usepackage[margin=0.4in]{geometry} 
+\usepackage[
+  margin=0.4in, % min 0.3 or 0.25 in
+%  bottom=0.3in,
+  %includehead,
+  headheight=0ex,
+  includehead,
+  headsep=0ex,
+  %includefoot,
+  %footskip=1ex,
+  %nofoot
+]{geometry}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{graphicx}
+% For transparent chars
+\usepackage{xcolor}
+\usepackage{transparent}
+%
+%\usepackage[T1]{fontenc} % Unicode in output PDF
+% Debugging
+%\usepackage{boxedminipage}
+
+%-------------------------------------------
+%---------------SETTINGS--------------------
+%-------------------------------------------
+
+\input{settings/formatting}
+
+\input{settings/custom_commands}
+
+%-------------------------------------------
+
+\begin{document}
+
+%-------------------------------------------
+%---------------ENGLISH VER-----------------
+%-------------------------------------------
+
+%\thispagestyle{empty} % No page number in 1st page
+\thispagestyle{note} % Include a note on 1st page
+\input{contents/en_header}
+
+\input{contents/en_profile}
+
+\input{contents/en_experience}
+
+%\input{contents/en_projects}
+
+\input{contents/en_technical_skills}
+
+\input{contents/en_education}
+
+\newpage
+
+\input{contents/en_presentations}
+
+\newpage
+
+%-------------------------------------------
+%---------------SPANISH VER-----------------
+%-------------------------------------------
+
+%\thispagestyle{empty} % No page number in 1st page
+%\thispagestyle{note} % Include a note on 1st page
+\input{contents/es_header}
+
+\input{contents/es_profile}
+
+\input{contents/es_experience}
+
+\input{contents/es_technical_skills}
+
+\newpage
+
+\input{contents/es_education}
+
+\input{contents/es_presentations}
+
+%-------------------------------------------
+
+\end{document}

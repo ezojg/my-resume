@@ -1,0 +1,93 @@
+%-------------------------------------------
+%---------------GENERAL---------------------
+%-------------------------------------------
+
+% Phantom punctuation chars for ATS parsability
+% Used in \myentry, \mysubentry and \myproject
+\newcommand{\mydot}{\makebox[0pt]{\texttransparent{0}{.}}}
+\newcommand{\mycomma}{\makebox[0pt]{\texttransparent{0}{,}}}
+
+% Custom indent size, to be used with long paragraphs 
+\newlength\myindentsize
+\setlength{\myindentsize}{15pt} % 15pt at 10pt text size is the LaTeX standard
+\newcommand{\myindent}{\makebox[\myindentsize]{}}
+
+% Line Width 
+\newlength\mylinewidth
+\setlength{\mylinewidth}{\textwidth}
+\addtolength{\mylinewidth}{-2em} % Here adjust margins of \myminipage as \textwidth minus em units
+
+% Section Margins and Alignment using Minipage
+\newcommand{\myminipage}[1]{%
+	\makebox[\textwidth][c]{% Centered Minipage
+		\begin{minipage}{\mylinewidth}% Width of Minipage
+		#1
+		\end{minipage}%
+	}%
+}
+
+%-------------------------------------------
+%---------------TABULARS--------------------
+%-------------------------------------------
+
+% CV entries
+% Usage: \myentry{university-or-company}{city}{degree-or-position}{year}
+\newcommand{\myentry}[4]{%
+	\begin{tabularx}{\textwidth}{ l X r }
+		 \textbf{#1} & \hspace*{\fill} \mycomma \hspace*{\fill} & \textit{#2}\mycomma \\
+		  \textit{#3} & \hspace*{\fill} \mycomma \hspace*{\fill} & \textit{#4}\mydot
+	\end{tabularx}%
+}
+
+% CV subentries, for changes of position at same company 
+% Usage: \myentry{degree-or-position}{year}
+\newcommand{\mysubentry}[2]{%
+	\begin{tabularx}{\textwidth}{ l X r }
+		  \textit{#1} & \hspace*{\fill} \mycomma \hspace*{\fill} & \textit{#2}\mydot
+	\end{tabularx}%
+}
+
+% Projects
+% Usage: \myproject{name}{skills-or-tooling-used}{year}
+\newcommand{\myproject}[3]{%
+	\begin{tabularx}{\textwidth}{ l l X r }
+		  \textbf{#1} & ~$|$~\textit{#2} & \hspace*{\fill} \mycomma \hspace*{\fill} & \textit{#3}\mydot
+	\end{tabularx}%
+}
+
+%-------------------------------------------
+%---------------ITEMIZE---------------------
+%-------------------------------------------
+
+% Plain lists, no bullets, no headings
+\newcommand{\myplainlist}[1]{%
+	\begin{itemize}[
+		leftmargin=1em,
+		itemindent=-1em,
+		label={}, 
+		nosep,
+		%after=\vspace{-7pt}
+	]
+    		#1
+	\end{itemize}%
+}
+
+% Bulleted list, to be used with after \myentry or \mysubentry
+% Custom bullets (2 choices)
+\newcommand{\mybulleta}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+%
+\newcommand{\mybulletb}{$\boldsymbol{\cdot}$}
+%
+\newcommand{\myitemize}[1]{%
+  \begin{itemize}[
+    leftmargin=2em,
+    %itemindent=-1em,
+    label={\mybulleta}, 
+    nosep,
+    %before=\vspace{-1\medskipamount}
+    %before=\vspace{-1\baselineskip}
+    ]
+    \vspace{0.5ex}
+    #1
+  \end{itemize}%
+}
